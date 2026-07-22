@@ -37,7 +37,7 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({ onOpenCheckout }) 
 
   const popularPlan = SUBSCRIPTION_PLANS.find(p => p.popular) || SUBSCRIPTION_PLANS[1];
 
-  if (!isLoggedIn) {
+  if (!isLoggedIn || !user) {
     return (
       <div className="max-w-4xl mx-auto px-4 py-20 text-center space-y-6">
         <div className="w-16 h-16 bg-[#5EB8E8]/10 border border-[#5EB8E8]/30 text-[#5EB8E8] rounded-2xl flex items-center justify-center mx-auto shadow-xl">
