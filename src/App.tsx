@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { ThemeProvider } from './context/ThemeContext';
 import { AuthProvider } from './context/AuthContext';
 import { PredictionsProvider } from './context/PredictionsContext';
 import { Navbar } from './components/Navbar';
@@ -36,7 +37,7 @@ export const AppContent: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#0b1120] text-slate-100 flex flex-col justify-between selection:bg-[#5EB8E8] selection:text-slate-950 font-sans">
+    <div className="min-h-screen flex flex-col justify-between font-sans selection:bg-[#38bdf8] selection:text-slate-950">
       <ScrollToTop />
 
       <div>
@@ -70,11 +71,13 @@ export const AppContent: React.FC = () => {
 export function App() {
   return (
     <Router>
-      <AuthProvider>
-        <PredictionsProvider>
-          <AppContent />
-        </PredictionsProvider>
-      </AuthProvider>
+      <ThemeProvider>
+        <AuthProvider>
+          <PredictionsProvider>
+            <AppContent />
+          </PredictionsProvider>
+        </AuthProvider>
+      </ThemeProvider>
     </Router>
   );
 }

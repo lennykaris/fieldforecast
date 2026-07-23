@@ -1,6 +1,10 @@
 @import "tailwindcss";
 
 @theme {
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-display: 'Chakra Petch', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
   --color-brand-50: #f0f9ff;
   --color-brand-100: #e0f2fe;
   --color-brand-200: #bae6fd;
@@ -8,51 +12,81 @@
   --color-brand-400: #38bdf8;
   --color-brand-500: #0ea5e9;
   --color-brand-600: #0284c7;
-  --color-brand-700: #0369a1;
-  --color-brand-800: #075985;
-  --color-brand-900: #0c4a6e;
-  --color-brand-DEFAULT: #0ea5e9;
+  --color-brand-[#0ea5e9]: #0ea5e9;
 }
 
-@layer base {
-  * {
-    border-color: #e2e8f0;
-  }
-  body {
-    background-color: #ffffff;
-    color: #0f172a;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    min-height: 100vh;
-  }
+/* Base styling */
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-/* Crisp Clean Sky Blue & White Cards */
-.white-card {
+.font-display {
+  font-family: 'Chakra Petch', sans-serif;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Dark Mode Theme Rules (Default Sportsbook Theme) */
+html.dark body {
+  background-color: #060a12;
+  color: #f1f5f9;
+}
+
+html.dark .bet-card {
+  background-color: #0d1527;
+  border: 1px solid #1e293b;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5);
+}
+
+html.dark .bet-card:hover {
+  border-color: #38bdf8;
+  box-shadow: 0 10px 30px -5px rgba(56, 189, 248, 0.2);
+}
+
+html.dark .bet-header {
+  background-color: #090f1d;
+  border-bottom: 1px solid #1e293b;
+}
+
+html.dark .bet-odds-box {
+  background-color: #080d19;
+  border: 1px solid #1e293b;
+}
+
+/* Light Mode Theme Rules */
+html.light body {
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
+html.light .bet-card {
   background-color: #ffffff;
   border: 1px solid #e2e8f0;
-  box-shadow: 0 4px 20px -4px rgba(14, 165, 233, 0.08);
+  box-shadow: 0 4px 20px -2px rgba(14, 165, 233, 0.08);
 }
 
-.white-card-hover {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.white-card-hover:hover {
+html.light .bet-card:hover {
   border-color: #0ea5e9;
-  transform: translateY(-2px);
   box-shadow: 0 12px 30px -10px rgba(14, 165, 233, 0.2);
 }
 
-.glow-sky {
-  box-shadow: 0 0 25px rgba(14, 165, 233, 0.25);
+html.light .bet-header {
+  background-color: #f1f5f9;
+  border-bottom: 1px solid #e2e8f0;
 }
 
+html.light .bet-odds-box {
+  background-color: #f0f9ff;
+  border: 1px solid #bae6fd;
+}
+
+/* Custom Sportsbook Edge Gradients */
 .text-gradient-sky {
-  background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+  background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-.bg-gradient-sky {
-  background: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 100%);
 }
