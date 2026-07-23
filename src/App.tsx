@@ -43,7 +43,8 @@ export const AppContent: React.FC = () => {
       <div>
         <Navbar onOpenCheckout={() => handleOpenCheckout(SUBSCRIPTION_PLANS[1])} />
 
-        <main>
+        {/* pt-20 accounts for fixed floating navbar height */}
+        <main className="pt-20">
           <Routes>
             <Route path="/" element={<HomePage onOpenCheckout={handleOpenCheckout} />} />
             <Route path="/tips" element={<FreeTipsPage onOpenCheckout={handleOpenCheckout} />} />

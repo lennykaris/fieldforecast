@@ -4,89 +4,137 @@
   --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --font-display: 'Chakra Petch', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
-
-  --color-brand-50: #f0f9ff;
-  --color-brand-100: #e0f2fe;
-  --color-brand-200: #bae6fd;
-  --color-brand-300: #7dd3fc;
-  --color-brand-400: #38bdf8;
-  --color-brand-500: #0ea5e9;
-  --color-brand-600: #0284c7;
-  --color-brand-[#0ea5e9]: #0ea5e9;
 }
 
-/* Base styling */
-body {
-  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  min-height: 100vh;
+/* ─── CSS THEME VARIABLES ─── */
+/* Dark mode (default) */
+:root,
+html.dark {
+  --bg-base:        #060a12;
+  --bg-surface:     #0d1527;
+  --bg-elevated:    #111d35;
+  --bg-muted:       #0a0f1e;
+  --border:         rgba(255,255,255,0.08);
+  --border-hover:   #38bdf8;
+  --text-primary:   #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted:     #475569;
+  --brand:          #38bdf8;
+  --brand-dark:     #0ea5e9;
+  --card-shadow:    0 4px 20px -2px rgba(0,0,0,0.5);
+  --card-shadow-h:  0 10px 30px -5px rgba(56,189,248,0.15);
+  --nav-bg:         rgba(7,12,22,0.92);
+  --nav-border:     rgba(255,255,255,0.06);
+}
+
+/* Light mode */
+html.light {
+  --bg-base:        #f8fafc;
+  --bg-surface:     #ffffff;
+  --bg-elevated:    #f1f5f9;
+  --bg-muted:       #e2e8f0;
+  --border:         rgba(0,0,0,0.1);
+  --border-hover:   #0ea5e9;
+  --text-primary:   #0f172a;
+  --text-secondary: #475569;
+  --text-muted:     #94a3b8;
+  --brand:          #0ea5e9;
+  --brand-dark:     #0284c7;
+  --card-shadow:    0 4px 20px -2px rgba(14,165,233,0.08);
+  --card-shadow-h:  0 12px 30px -10px rgba(14,165,233,0.18);
+  --nav-bg:         rgba(255,255,255,0.95);
+  --nav-border:     rgba(0,0,0,0.08);
+}
+
+/* ─── BASE ─── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.font-display {
-  font-family: 'Chakra Petch', sans-serif;
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  background-color: var(--bg-base);
+  color: var(--text-primary);
 }
 
-.font-mono {
-  font-family: 'JetBrains Mono', monospace;
+/* ─── TYPOGRAPHY ─── */
+.font-display { font-family: 'Chakra Petch', sans-serif; }
+.font-mono    { font-family: 'JetBrains Mono', monospace; }
+
+/* ─── CARD SYSTEM ─── */
+.bet-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--card-shadow);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.bet-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--card-shadow-h);
 }
 
-/* Dark Mode Theme Rules (Default Sportsbook Theme) */
-html.dark body {
-  background-color: #060a12;
-  color: #f1f5f9;
+.bet-header {
+  background-color: var(--bg-muted);
+  border-bottom: 1px solid var(--border);
 }
 
-html.dark .bet-card {
-  background-color: #0d1527;
-  border: 1px solid #1e293b;
-  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5);
+.bet-odds-box {
+  background-color: var(--bg-muted);
+  border: 1px solid var(--border);
 }
 
-html.dark .bet-card:hover {
-  border-color: #38bdf8;
-  box-shadow: 0 10px 30px -5px rgba(56, 189, 248, 0.2);
+/* ─── FLOATING ISLAND NAV ─── */
+.nav-island {
+  background: var(--nav-bg);
+  border: 1px solid var(--nav-border);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
-html.dark .bet-header {
-  background-color: #090f1d;
-  border-bottom: 1px solid #1e293b;
-}
+/* ─── THEME UTILITY CLASSES ─── */
+.bg-base     { background-color: var(--bg-base); }
+.bg-surface  { background-color: var(--bg-surface); }
+.bg-elevated { background-color: var(--bg-elevated); }
+.text-primary   { color: var(--text-primary); }
+.text-secondary { color: var(--text-secondary); }
+.text-muted-c   { color: var(--text-muted); }
+.border-theme   { border-color: var(--border); }
+.brand-color    { color: var(--brand); }
+.brand-bg       { background-color: var(--brand); }
 
-html.dark .bet-odds-box {
-  background-color: #080d19;
-  border: 1px solid #1e293b;
+/* ─── INPUT THEME ─── */
+.input-field {
+  background-color: var(--bg-elevated);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  transition: border-color 0.15s ease;
 }
-
-/* Light Mode Theme Rules */
-html.light body {
-  background-color: #f8fafc;
-  color: #0f172a;
+.input-field:focus {
+  outline: none;
+  border-color: var(--brand);
 }
+.input-field::placeholder { color: var(--text-muted); }
 
-html.light .bet-card {
-  background-color: #ffffff;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 4px 20px -2px rgba(14, 165, 233, 0.08);
-}
-
-html.light .bet-card:hover {
-  border-color: #0ea5e9;
-  box-shadow: 0 12px 30px -10px rgba(14, 165, 233, 0.2);
-}
-
-html.light .bet-header {
-  background-color: #f1f5f9;
-  border-bottom: 1px solid #e2e8f0;
-}
-
-html.light .bet-odds-box {
-  background-color: #f0f9ff;
-  border: 1px solid #bae6fd;
-}
-
-/* Custom Sportsbook Edge Gradients */
+/* ─── GRADIENT TEXT ─── */
 .text-gradient-sky {
   background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
+
+/* ─── SCROLLBAR ─── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-base); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: var(--brand); }
+
+/* ─── RANGE SLIDER ─── */
+input[type="range"] { accent-color: var(--brand); }
+
+/* ─── FADE ANIMATION ─── */
+@keyframes fadeIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
+.animate-fadein { animation: fadeIn 0.15s ease forwards; }
