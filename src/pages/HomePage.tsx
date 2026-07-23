@@ -62,7 +62,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenCheckout }) => {
     <div style={{ backgroundColor: 'var(--bg-base)' }}>
 
       {/* ─── HERO ─── */}
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden pb-16 pt-12 md:py-24">
+      <section className="relative flex items-center justify-center overflow-hidden pt-6 pb-12 sm:pt-12 sm:pb-16 md:py-24 md:min-h-screen">
         {/* Stadium background */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
