@@ -109,14 +109,14 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenCheckout }) => {
           </div>
 
           {/* ─── STATS — below CTAs as requested ─── */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-0 border border-white/8 rounded-2xl overflow-hidden max-w-xl mx-auto">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-0 border border-white/10 rounded-2xl overflow-hidden max-w-3xl mx-auto backdrop-blur-sm bg-white/[0.02]">
             {stats.map(({ val, label }, i) => (
               <div
                 key={label}
-                className={`flex-1 py-4 px-4 text-center ${i < stats.length - 1 ? 'border-b sm:border-b-0 sm:border-r border-white/8' : ''}`}
+                className={`flex-1 py-4 px-3 sm:px-4 text-center ${i < stats.length - 1 ? 'border-b sm:border-b-0 sm:border-r border-white/10' : ''}`}
               >
-                <div className="text-xl sm:text-2xl font-black text-white font-mono leading-none">{val}</div>
-                <div className="text-[9px] text-white/35 font-semibold uppercase tracking-widest mt-1">{label}</div>
+                <div className="text-lg sm:text-xl md:text-2xl font-black text-white font-mono leading-none whitespace-nowrap">{val}</div>
+                <div className="text-[9px] sm:text-[10px] text-white/40 font-semibold uppercase tracking-wider mt-1.5 whitespace-nowrap">{label}</div>
               </div>
             ))}
           </div>

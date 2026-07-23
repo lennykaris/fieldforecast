@@ -31,7 +31,7 @@ export const FreeTipsPage: React.FC<FreeTipsPageProps> = ({ onOpenCheckout }) =>
       className="min-h-screen"
       style={{ backgroundColor: 'var(--bg-base)', color: 'var(--text-primary)' }}
     >
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 py-12 space-y-8">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 pt-24 pb-12 space-y-8">
 
         {/* Header */}
         <div className="space-y-1.5">
