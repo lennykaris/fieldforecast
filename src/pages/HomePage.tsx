@@ -1,25 +1,17 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { 
-  TrendingUp, 
   Crown, 
   Zap, 
   ShieldCheck, 
   BarChart3, 
-  Award, 
   CheckCircle2, 
   ArrowRight, 
-  Sparkles, 
   ChevronDown, 
   ChevronUp, 
-  Clock, 
-  Percent, 
-  DollarSign, 
-  Users,
   Flame
 } from 'lucide-react';
 import { usePredictions } from '../context/PredictionsContext';
-import { useAuth } from '../context/AuthContext';
 import { PredictionCard } from '../components/PredictionCard';
 import { SUBSCRIPTION_PLANS } from '../data/predictions';
 import type { SubscriptionPlan } from '../types/prediction';
@@ -30,9 +22,6 @@ interface HomePageProps {
 
 export const HomePage: React.FC<HomePageProps> = ({ onOpenCheckout }) => {
   const { predictions } = usePredictions();
-  const { isVip } = useAuth();
-  const navigate = useNavigate();
-
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   // Free picks preview (3 items)
@@ -46,11 +35,11 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenCheckout }) => {
   const faqs = [
     {
       q: 'How are Fieldforecasts predictions generated?',
-      a: 'We combine advanced statistical xG (Expected Goals) algorithms with expert tactical analysis, tracking team injury reports, manager tendencies, and market line movements.',
+      a: 'We combine statistical xG (Expected Goals) algorithms with expert tactical analysis, tracking team injury reports, manager tendencies, and market line movements.',
     },
     {
       q: 'What is the average win rate of VIP predictions?',
-      a: 'Our verified historical performance holds an 87.4% win rate on high-confidence (85%+) picks and a +34.8% average monthly Return on Investment (ROI).',
+      a: 'Our verified historical performance holds an 87.4% win rate on high-confidence picks and a +34.8% average monthly Return on Investment (ROI).',
     },
     {
       q: 'Can I cancel my VIP subscription anytime?',
@@ -63,28 +52,28 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenCheckout }) => {
   ];
 
   return (
-    <div className="space-y-20 pb-16">
+    <div className="space-y-20 pb-16 bg-white">
       
       {/* HERO SECTION */}
-      <section className="relative pt-12 lg:pt-20 pb-16 overflow-hidden">
+      <section className="relative pt-12 lg:pt-20 pb-16 overflow-hidden bg-gradient-to-b from-sky-50/70 via-white to-white">
         
-        {/* Glow backdrop graphics */}
-        <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-[#5EB8E8]/15 rounded-full blur-[120px] pointer-events-none" />
+        {/* Glow backdrop graphic */}
+        <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-sky-200/40 rounded-full blur-[120px] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           
           {/* Top Pill Alert */}
-          <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-[#5EB8E8]/10 border border-[#5EB8E8]/30 text-[#5EB8E8] text-xs font-bold uppercase tracking-wider mb-6 animate-pulse">
-            <Flame className="w-4 h-4 text-amber-400" />
+          <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-sky-100 border border-sky-300 text-[#0EA5E9] text-xs font-bold uppercase tracking-wider mb-6">
+            <Flame className="w-4 h-4 text-[#0EA5E9]" />
             <span>Today's Match Picks Now Live • 87.4% Win Rate</span>
           </div>
 
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white max-w-4xl mx-auto leading-[1.1]">
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-slate-900 max-w-4xl mx-auto leading-[1.1]">
             Unfair Advantage in <br />
-            <span className="text-gradient-brand">Sports Prediction</span>
+            <span className="text-gradient-sky">Sports Prediction</span>
           </h1>
 
-          <p className="mt-6 text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-6 text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
             Data-backed statistical models and high-confidence football insights. Get daily free tips or unlock high-odds VIP picks with proven monthly ROI.
           </p>
 
@@ -92,41 +81,41 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenCheckout }) => {
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
               onClick={() => onOpenCheckout(popularPlan)}
-              className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-amber-400 via-amber-300 to-[#5EB8E8] text-slate-950 font-black text-sm uppercase tracking-wider rounded-2xl shadow-xl shadow-amber-400/20 hover:brightness-110 transition-all transform hover:scale-105 flex items-center justify-center space-x-2"
+              className="w-full sm:w-auto px-8 py-4 bg-[#0EA5E9] text-white font-black text-sm uppercase tracking-wider rounded-2xl shadow-lg shadow-sky-500/25 hover:bg-sky-600 transition-all transform hover:scale-105 flex items-center justify-center space-x-2"
             >
-              <Crown className="w-5 h-5 fill-slate-950" />
-              <span>Unlock VIP Picks Now</span>
+              <Crown className="w-5 h-5 fill-white" />
+              <span>Unlock VIP Picks Now ($29/mo)</span>
             </button>
 
             <Link
               to="/tips"
-              className="w-full sm:w-auto px-8 py-4 glass-card text-white hover:text-[#5EB8E8] font-bold text-sm rounded-2xl border border-slate-700 hover:border-[#5EB8E8]/50 transition-all flex items-center justify-center space-x-2"
+              className="w-full sm:w-auto px-8 py-4 bg-white text-slate-800 hover:text-[#0EA5E9] font-bold text-sm rounded-2xl border border-slate-200 hover:border-sky-300 shadow-xs transition-all flex items-center justify-center space-x-2"
             >
-              <Zap className="w-5 h-5 text-[#5EB8E8]" />
+              <Zap className="w-5 h-5 text-[#0EA5E9]" />
               <span>View Free Tips</span>
             </Link>
           </div>
 
           {/* Live Stats Ticker Grid */}
           <div className="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
-            <div className="p-4 rounded-2xl glass-card border border-slate-800 text-center">
-              <span className="text-2xl sm:text-3xl font-black text-[#5EB8E8] font-mono">87.4%</span>
-              <p className="text-xs text-slate-400 font-semibold mt-1">Verified Win Rate</p>
+            <div className="p-5 rounded-2xl bg-white border border-slate-200 shadow-xs text-center">
+              <span className="text-2xl sm:text-3xl font-black text-[#0EA5E9] font-mono">87.4%</span>
+              <p className="text-xs text-slate-500 font-semibold mt-1">Verified Win Rate</p>
             </div>
 
-            <div className="p-4 rounded-2xl glass-card border border-slate-800 text-center">
-              <span className="text-2xl sm:text-3xl font-black text-amber-400 font-mono">+34.8%</span>
-              <p className="text-xs text-slate-400 font-semibold mt-1">Avg Monthly ROI</p>
+            <div className="p-5 rounded-2xl bg-white border border-slate-200 shadow-xs text-center">
+              <span className="text-2xl sm:text-3xl font-black text-[#0EA5E9] font-mono">+34.8%</span>
+              <p className="text-xs text-slate-500 font-semibold mt-1">Avg Monthly ROI</p>
             </div>
 
-            <div className="p-4 rounded-2xl glass-card border border-slate-800 text-center">
-              <span className="text-2xl sm:text-3xl font-black text-emerald-400 font-mono">14,500+</span>
-              <p className="text-xs text-slate-400 font-semibold mt-1">Active VIP Members</p>
+            <div className="p-5 rounded-2xl bg-white border border-slate-200 shadow-xs text-center">
+              <span className="text-2xl sm:text-3xl font-black text-[#0EA5E9] font-mono">14,500+</span>
+              <p className="text-xs text-slate-500 font-semibold mt-1">Active VIP Members</p>
             </div>
 
-            <div className="p-4 rounded-2xl glass-card border border-slate-800 text-center">
-              <span className="text-2xl sm:text-3xl font-black text-purple-400 font-mono">4.9 / 5.0</span>
-              <p className="text-xs text-slate-400 font-semibold mt-1">Subscriber Rating</p>
+            <div className="p-5 rounded-2xl bg-white border border-slate-200 shadow-xs text-center">
+              <span className="text-2xl sm:text-3xl font-black text-[#0EA5E9] font-mono">4.9 / 5.0</span>
+              <p className="text-xs text-slate-500 font-semibold mt-1">Subscriber Rating</p>
             </div>
           </div>
 
@@ -137,18 +126,18 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenCheckout }) => {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between mb-8 gap-4">
           <div>
-            <div className="flex items-center space-x-2 text-[#5EB8E8] text-xs font-bold uppercase tracking-wider">
+            <div className="flex items-center space-x-2 text-[#0EA5E9] text-xs font-bold uppercase tracking-wider">
               <Zap className="w-4 h-4" />
               <span>Daily Intelligence</span>
             </div>
-            <h2 className="text-2xl sm:text-4xl font-black text-white mt-1">
+            <h2 className="text-2xl sm:text-4xl font-black text-slate-900 mt-1">
               Today's Free Predictions
             </h2>
           </div>
 
           <Link
             to="/tips"
-            className="text-xs font-bold text-[#5EB8E8] hover:text-sky-300 flex items-center space-x-1 uppercase tracking-wider"
+            className="text-xs font-bold text-[#0EA5E9] hover:underline flex items-center space-x-1 uppercase tracking-wider"
           >
             <span>Explore All Free Predictions</span>
             <ArrowRight className="w-4 h-4" />
@@ -164,31 +153,31 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenCheckout }) => {
 
       {/* LOCKED VIP PICKS TEASER BANNER */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative rounded-3xl bg-gradient-to-r from-slate-900 via-[#151e32] to-slate-900 border-2 border-amber-500/40 p-8 sm:p-12 overflow-hidden shadow-2xl">
+        <div className="relative rounded-3xl bg-sky-50/80 border-2 border-sky-300 p-8 sm:p-12 overflow-hidden shadow-md">
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
             <div className="lg:col-span-7 space-y-4">
-              <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-amber-400/10 border border-amber-400/30 text-amber-400 text-xs font-bold uppercase tracking-wider">
-                <Crown className="w-4 h-4 fill-amber-400" />
+              <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-white border border-sky-300 text-[#0EA5E9] text-xs font-bold uppercase tracking-wider shadow-xs">
+                <Crown className="w-4 h-4 fill-[#0EA5E9]" />
                 <span>Exclusive Locked VIP Match Picks</span>
               </div>
 
-              <h2 className="text-3xl sm:text-4xl font-black text-white leading-tight">
+              <h2 className="text-3xl sm:text-4xl font-black text-slate-900 leading-tight">
                 High-Odds Champions League & Premier League VIP Value Bets
               </h2>
 
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                Our AI model has flagged 2 premium value picks for tonight's fixtures with calculated probabilities over 90% and decimal odds of 2.10+.
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Our model has flagged 2 premium value picks for tonight's fixtures with calculated probabilities over 90% and decimal odds of 2.10+.
               </p>
 
-              <div className="flex flex-wrap gap-4 text-xs text-slate-300 font-semibold pt-2">
+              <div className="flex flex-wrap gap-4 text-xs text-slate-700 font-semibold pt-2">
                 <span className="flex items-center space-x-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-amber-400" />
+                  <CheckCircle2 className="w-4 h-4 text-[#0EA5E9]" />
                   <span>Real Madrid vs Bayern Munich (Qualify)</span>
                 </span>
                 <span className="flex items-center space-x-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-amber-400" />
+                  <CheckCircle2 className="w-4 h-4 text-[#0EA5E9]" />
                   <span>Man City vs Liverpool (-1.0 Asian Handicap)</span>
                 </span>
               </div>
@@ -196,9 +185,9 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenCheckout }) => {
               <div className="pt-4">
                 <button
                   onClick={() => onOpenCheckout(popularPlan)}
-                  className="px-8 py-3.5 bg-gradient-to-r from-amber-400 via-amber-300 to-[#5EB8E8] text-slate-950 font-black text-xs uppercase tracking-wider rounded-xl shadow-xl shadow-amber-400/20 hover:brightness-110 transition-all flex items-center space-x-2"
+                  className="px-8 py-3.5 bg-[#0EA5E9] hover:bg-sky-600 text-white font-black text-xs uppercase tracking-wider rounded-xl shadow-md transition-all flex items-center space-x-2"
                 >
-                  <Crown className="w-4 h-4 fill-slate-950" />
+                  <Crown className="w-4 h-4 fill-white" />
                   <span>Unlock Both VIP Tips ($29.99/mo)</span>
                 </button>
               </div>
@@ -223,43 +212,43 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenCheckout }) => {
       {/* WHY CHOOSE FIELDFORECASTS */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <span className="text-xs font-bold uppercase tracking-wider text-[#5EB8E8]">Data Science Meets Sports</span>
-          <h2 className="text-3xl sm:text-4xl font-black text-white mt-1">
+          <span className="text-xs font-bold uppercase tracking-wider text-[#0EA5E9]">Data Science Meets Sports</span>
+          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 mt-1">
             Why Bettors Trust Fieldforecasts
           </h2>
-          <p className="mt-3 text-xs sm:text-sm text-slate-400">
+          <p className="mt-3 text-xs sm:text-sm text-slate-500">
             We eliminate emotional guesswork by relying strictly on quantitative statistical modeling.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="p-8 rounded-3xl glass-card border border-slate-800 space-y-4">
-            <div className="w-12 h-12 rounded-2xl bg-[#5EB8E8]/10 border border-[#5EB8E8]/30 flex items-center justify-center text-[#5EB8E8]">
+          <div className="p-8 rounded-3xl bg-white border border-slate-200 shadow-xs space-y-4">
+            <div className="w-12 h-12 rounded-2xl bg-sky-50 border border-sky-200 flex items-center justify-center text-[#0EA5E9]">
               <BarChart3 className="w-6 h-6" />
             </div>
-            <h3 className="text-lg font-bold text-white">xG Quantitative Modeling</h3>
-            <p className="text-xs text-slate-400 leading-relaxed">
-              Our proprietary predictive algorithms analyze shot location xG, defensive pressure metrics, and set-piece efficiency across 10,000+ matches.
+            <h3 className="text-lg font-bold text-slate-900">xG Quantitative Modeling</h3>
+            <p className="text-xs text-slate-600 leading-relaxed">
+              Our predictive algorithms analyze shot location xG, defensive pressure metrics, and set-piece efficiency across 10,000+ matches.
             </p>
           </div>
 
-          <div className="p-8 rounded-3xl glass-card border border-slate-800 space-y-4">
-            <div className="w-12 h-12 rounded-2xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400">
+          <div className="p-8 rounded-3xl bg-white border border-slate-200 shadow-xs space-y-4">
+            <div className="w-12 h-12 rounded-2xl bg-sky-50 border border-sky-200 flex items-center justify-center text-[#0EA5E9]">
               <Crown className="w-6 h-6" />
             </div>
-            <h3 className="text-lg font-bold text-white">High-Value Accumulators</h3>
-            <p className="text-xs text-slate-400 leading-relaxed">
-              VIP members receive curated double and triple accumulator combinations engineered for maximum expected value (+EV) against bookmaker odds.
+            <h3 className="text-lg font-bold text-slate-900">High-Value Accumulators</h3>
+            <p className="text-xs text-slate-600 leading-relaxed">
+              VIP members receive curated double and triple accumulator combinations engineered for maximum expected value against bookmakers.
             </p>
           </div>
 
-          <div className="p-8 rounded-3xl glass-card border border-slate-800 space-y-4">
-            <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+          <div className="p-8 rounded-3xl bg-white border border-slate-200 shadow-xs space-y-4">
+            <div className="w-12 h-12 rounded-2xl bg-sky-50 border border-sky-200 flex items-center justify-center text-[#0EA5E9]">
               <ShieldCheck className="w-6 h-6" />
             </div>
-            <h3 className="text-lg font-bold text-white">Transparent Tracking</h3>
-            <p className="text-xs text-slate-400 leading-relaxed">
-              No hidden record changes or erased losses. Every tip published is recorded live and audited in our public performance logs.
+            <h3 className="text-lg font-bold text-slate-900">Transparent Tracking</h3>
+            <p className="text-xs text-slate-600 leading-relaxed">
+              No hidden record changes. Every tip published is recorded live and audited in our public performance logs.
             </p>
           </div>
         </div>
@@ -268,8 +257,8 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenCheckout }) => {
       {/* FAQ ACCORDION */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
-          <span className="text-xs font-bold uppercase tracking-wider text-[#5EB8E8]">Got Questions?</span>
-          <h2 className="text-3xl font-black text-white mt-1">Frequently Asked Questions</h2>
+          <span className="text-xs font-bold uppercase tracking-wider text-[#0EA5E9]">Got Questions?</span>
+          <h2 className="text-3xl font-black text-slate-900 mt-1">Frequently Asked Questions</h2>
         </div>
 
         <div className="space-y-4">
@@ -278,21 +267,21 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenCheckout }) => {
             return (
               <div
                 key={idx}
-                className="rounded-2xl glass-card border border-slate-800 overflow-hidden transition-colors"
+                className="rounded-2xl bg-white border border-slate-200 shadow-xs overflow-hidden transition-colors"
               >
                 <button
                   onClick={() => setOpenFaq(isOpen ? null : idx)}
-                  className="w-full p-5 text-left flex items-center justify-between font-bold text-sm text-slate-200 hover:text-white"
+                  className="w-full p-5 text-left flex items-center justify-between font-bold text-sm text-slate-800 hover:text-[#0EA5E9]"
                 >
                   <span>{faq.q}</span>
                   {isOpen ? (
-                    <ChevronUp className="w-5 h-5 text-[#5EB8E8]" />
+                    <ChevronUp className="w-5 h-5 text-[#0EA5E9]" />
                   ) : (
-                    <ChevronDown className="w-5 h-5 text-slate-500" />
+                    <ChevronDown className="w-5 h-5 text-slate-400" />
                   )}
                 </button>
                 {isOpen && (
-                  <div className="px-5 pb-5 text-xs text-slate-400 leading-relaxed border-t border-slate-800/60 pt-3">
+                  <div className="px-5 pb-5 text-xs text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
                     {faq.a}
                   </div>
                 )}
@@ -304,19 +293,19 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenCheckout }) => {
 
       {/* FINAL BOTTOM CTA */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl bg-gradient-to-r from-[#5EB8E8]/20 via-slate-900 to-[#5EB8E8]/20 border border-[#5EB8E8]/40 p-8 sm:p-12 text-center relative overflow-hidden">
-          <h2 className="text-3xl sm:text-5xl font-black text-white">
+        <div className="rounded-3xl bg-sky-50 border border-sky-200 p-8 sm:p-12 text-center relative overflow-hidden shadow-xs">
+          <h2 className="text-3xl sm:text-5xl font-black text-slate-900">
             Ready to Upgrade Your Sports Betting Strategy?
           </h2>
-          <p className="mt-4 text-xs sm:text-base text-slate-300 max-w-xl mx-auto">
+          <p className="mt-4 text-xs sm:text-base text-slate-600 max-w-xl mx-auto">
             Join over 14,500 subscribers leveraging Fieldforecasts daily picks. Cancel anytime.
           </p>
           <div className="mt-8 flex justify-center">
             <button
               onClick={() => onOpenCheckout(popularPlan)}
-              className="px-8 py-4 bg-[#5EB8E8] hover:bg-sky-300 text-slate-950 font-black text-xs uppercase tracking-wider rounded-2xl shadow-xl shadow-[#5EB8E8]/30 transition-all transform hover:scale-105 flex items-center space-x-2"
+              className="px-8 py-4 bg-[#0EA5E9] hover:bg-sky-600 text-white font-black text-xs uppercase tracking-wider rounded-2xl shadow-lg shadow-sky-500/20 transition-all transform hover:scale-105 flex items-center space-x-2"
             >
-              <Crown className="w-4 h-4 fill-slate-950" />
+              <Crown className="w-4 h-4 fill-white" />
               <span>Get Started ($29.99/mo)</span>
             </button>
           </div>

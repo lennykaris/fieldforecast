@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Crown, Sparkles, Check, X, ShieldCheck, Zap, Calculator, Trophy, ArrowRight } from 'lucide-react';
+import { Crown, Check, X, Calculator } from 'lucide-react';
 import { PricingCard } from '../components/PricingCard';
 import { SUBSCRIPTION_PLANS } from '../data/predictions';
 import type { SubscriptionPlan } from '../types/prediction';
@@ -32,19 +32,19 @@ export const VipPage: React.FC<VipPageProps> = ({ onOpenCheckout }) => {
   ];
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16 bg-white">
       
       {/* Header Section */}
       <div className="text-center max-w-3xl mx-auto space-y-4">
-        <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-amber-400/10 border border-amber-400/30 text-amber-400 text-xs font-bold uppercase tracking-wider">
-          <Crown className="w-4 h-4 fill-amber-400" />
+        <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-sky-50 border border-sky-200 text-[#0EA5E9] text-xs font-bold uppercase tracking-wider">
+          <Crown className="w-4 h-4 fill-[#0EA5E9]" />
           <span>VIP Predictor Access</span>
         </div>
-        <h1 className="text-4xl sm:text-6xl font-black text-white tracking-tight">
+        <h1 className="text-4xl sm:text-6xl font-black text-slate-900 tracking-tight">
           Invest in High-Probability <br />
-          <span className="text-gradient-brand">Sports Predictions</span>
+          <span className="text-gradient-sky">Sports Predictions</span>
         </h1>
-        <p className="text-xs sm:text-base text-slate-300 leading-relaxed">
+        <p className="text-xs sm:text-base text-slate-600 leading-relaxed">
           Gain immediate access to our highest confidence picks, tactical breakdowns, and value accumulators engineered to outperform standard bookmaker margins.
         </p>
       </div>
@@ -65,18 +65,18 @@ export const VipPage: React.FC<VipPageProps> = ({ onOpenCheckout }) => {
       </div>
 
       {/* INTERACTIVE ROI / PROFIT CALCULATOR */}
-      <div className="rounded-3xl glass-card border border-slate-800 p-8 sm:p-12 space-y-8">
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b border-slate-800 pb-6">
+      <div className="rounded-3xl bg-white border border-slate-200 p-8 sm:p-12 space-y-8 shadow-xs">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b border-slate-100 pb-6">
           <div>
-            <div className="flex items-center space-x-2 text-[#5EB8E8] text-xs font-bold uppercase tracking-wider">
+            <div className="flex items-center space-x-2 text-[#0EA5E9] text-xs font-bold uppercase tracking-wider">
               <Calculator className="w-4 h-4" />
               <span>Interactive ROI Simulator</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-black text-white mt-1">
+            <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mt-1">
               Estimate Your Potential Monthly Return
             </h2>
           </div>
-          <span className="text-xs font-semibold text-slate-400 bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-xl">
+          <span className="text-xs font-semibold text-slate-600 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-xl">
             Based on historical +34.8% field yield
           </span>
         </div>
@@ -87,8 +87,8 @@ export const VipPage: React.FC<VipPageProps> = ({ onOpenCheckout }) => {
           <div className="lg:col-span-7 space-y-6">
             <div className="space-y-2">
               <div className="flex justify-between text-xs font-bold">
-                <span className="text-slate-300">Average Unit Stake Per Bet</span>
-                <span className="text-[#5EB8E8] font-mono text-sm">${stakePerBet}</span>
+                <span className="text-slate-700">Average Unit Stake Per Bet</span>
+                <span className="text-[#0EA5E9] font-mono text-sm">${stakePerBet}</span>
               </div>
               <input
                 type="range"
@@ -97,14 +97,14 @@ export const VipPage: React.FC<VipPageProps> = ({ onOpenCheckout }) => {
                 step="10"
                 value={stakePerBet}
                 onChange={e => setStakePerBet(Number(e.target.value))}
-                className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-[#5EB8E8]"
+                className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-[#0EA5E9]"
               />
             </div>
 
             <div className="space-y-2">
               <div className="flex justify-between text-xs font-bold">
-                <span className="text-slate-300">VIP Bets Played Per Week</span>
-                <span className="text-[#5EB8E8] font-mono text-sm">{betsPerWeek} bets</span>
+                <span className="text-slate-700">VIP Bets Played Per Week</span>
+                <span className="text-[#0EA5E9] font-mono text-sm">{betsPerWeek} bets</span>
               </div>
               <input
                 type="range"
@@ -113,21 +113,21 @@ export const VipPage: React.FC<VipPageProps> = ({ onOpenCheckout }) => {
                 step="1"
                 value={betsPerWeek}
                 onChange={e => setBetsPerWeek(Number(e.target.value))}
-                className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-[#5EB8E8]"
+                className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-[#0EA5E9]"
               />
             </div>
           </div>
 
           {/* Result Card */}
-          <div className="lg:col-span-5 p-6 rounded-2xl bg-slate-950 border border-slate-800 text-center space-y-3">
-            <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block">
+          <div className="lg:col-span-5 p-6 rounded-2xl bg-sky-50 border border-sky-200 text-center space-y-3">
+            <span className="text-xs font-bold text-slate-600 uppercase tracking-wider block">
               Estimated Monthly Net Profit
             </span>
-            <span className="text-4xl sm:text-5xl font-black text-emerald-400 font-mono block">
+            <span className="text-4xl sm:text-5xl font-black text-[#0EA5E9] font-mono block">
               +${estimatedMonthlyProfit.toLocaleString()}
             </span>
             <p className="text-[11px] text-slate-500">
-              *Calculated on ${monthlyWagered.toLocaleString()} total wagered volume at 34.8% historical ROI. Past performance does not guarantee future results.
+              *Calculated on ${monthlyWagered.toLocaleString()} total wagered volume at 34.8% historical ROI.
             </p>
           </div>
 
@@ -137,49 +137,49 @@ export const VipPage: React.FC<VipPageProps> = ({ onOpenCheckout }) => {
       {/* FEATURE COMPARISON MATRIX */}
       <div className="space-y-6">
         <div className="text-center">
-          <h2 className="text-2xl sm:text-3xl font-black text-white">
+          <h2 className="text-2xl sm:text-3xl font-black text-slate-900">
             Detailed Feature Comparison Matrix
           </h2>
-          <p className="text-xs text-slate-400 mt-1">See what is included in each subscription tier.</p>
+          <p className="text-xs text-slate-500 mt-1">See what is included in each subscription tier.</p>
         </div>
 
-        <div className="glass-card border border-slate-800 rounded-3xl overflow-hidden shadow-2xl">
+        <div className="bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-xs">
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs text-slate-300">
-              <thead className="bg-slate-900/90 text-slate-300 font-bold uppercase tracking-wider text-[10px] border-b border-slate-800">
+            <table className="w-full text-left text-xs text-slate-700">
+              <thead className="bg-sky-50 text-slate-900 font-bold uppercase tracking-wider text-[10px] border-b border-sky-100">
                 <tr>
                   <th className="py-4 px-6">Feature / Perk</th>
                   <th className="py-4 px-6 text-center">Free Tier</th>
-                  <th className="py-4 px-6 text-center text-[#5EB8E8]">Pro Predictor ($29.99)</th>
-                  <th className="py-4 px-6 text-center text-amber-400">Champion VIP ($199.99)</th>
+                  <th className="py-4 px-6 text-center text-[#0EA5E9]">Pro Predictor ($29.99)</th>
+                  <th className="py-4 px-6 text-center text-[#0EA5E9]">Champion VIP ($199.99)</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-800/80">
+              <tbody className="divide-y divide-slate-100">
                 {featureMatrix.map((row, idx) => (
-                  <tr key={idx} className="hover:bg-slate-800/30 transition-colors">
-                    <td className="py-4 px-6 font-semibold text-slate-200">{row.feature}</td>
+                  <tr key={idx} className="hover:bg-slate-50 transition-colors">
+                    <td className="py-4 px-6 font-semibold text-slate-800">{row.feature}</td>
                     
                     <td className="py-4 px-6 text-center">
                       {row.free ? (
-                        <Check className="w-5 h-5 text-slate-400 mx-auto" />
+                        <Check className="w-5 h-5 text-[#0EA5E9] mx-auto" />
                       ) : (
-                        <X className="w-4 h-4 text-slate-600 mx-auto" />
+                        <X className="w-4 h-4 text-slate-300 mx-auto" />
                       )}
                     </td>
 
                     <td className="py-4 px-6 text-center">
                       {row.pro ? (
-                        <Check className="w-5 h-5 text-[#5EB8E8] mx-auto" />
+                        <Check className="w-5 h-5 text-[#0EA5E9] mx-auto" />
                       ) : (
-                        <X className="w-4 h-4 text-slate-600 mx-auto" />
+                        <X className="w-4 h-4 text-slate-300 mx-auto" />
                       )}
                     </td>
 
                     <td className="py-4 px-6 text-center">
                       {row.champion ? (
-                        <Check className="w-5 h-5 text-amber-400 mx-auto" />
+                        <Check className="w-5 h-5 text-[#0EA5E9] mx-auto" />
                       ) : (
-                        <X className="w-4 h-4 text-slate-600 mx-auto" />
+                        <X className="w-4 h-4 text-slate-300 mx-auto" />
                       )}
                     </td>
                   </tr>
