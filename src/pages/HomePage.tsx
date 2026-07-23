@@ -21,7 +21,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenCheckout }) => {
     { val: '87.4%', label: 'Win Rate' },
     { val: '+34.8%', label: 'Monthly ROI' },
     { val: '14,500+', label: 'VIP Members' },
-    { val: '4.9 / 5.0', label: 'Subscriber Rating' },
+    { val: '4.9 / 5.0', label: 'Rating' },
   ];
 
   const faqs = [
@@ -62,72 +62,72 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenCheckout }) => {
     <div style={{ backgroundColor: 'var(--bg-base)' }}>
 
       {/* ─── HERO ─── */}
-      <section className="relative min-h-screen flex items-center overflow-hidden">
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden pb-16 pt-12 md:py-24">
         {/* Stadium background */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: "url('/hero-stadium.png')" }}
         />
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(6,10,18,0.82) 0%, rgba(6,10,18,0.50) 40%, rgba(6,10,18,0.97) 100%)' }} />
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(6,10,18,0.55) 0%, transparent 50%, rgba(6,10,18,0.55) 100%)' }} />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(6,10,18,0.85) 0%, rgba(6,10,18,0.55) 40%, rgba(6,10,18,0.98) 100%)' }} />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(6,10,18,0.6) 0%, transparent 50%, rgba(6,10,18,0.6) 100%)' }} />
 
-        <div className="relative z-10 w-full max-w-5xl mx-auto px-5 sm:px-8 py-24 text-center">
+        <div className="relative z-10 w-full max-w-4xl mx-auto px-5 sm:px-8 text-center">
 
           {/* Eyebrow */}
           <p
-            className="text-[11px] font-bold uppercase tracking-[0.2em] mb-6"
+            className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.2em] mb-4 sm:mb-6"
             style={{ color: 'var(--brand)' }}
           >
             Data-Backed Football Predictions
           </p>
 
           {/* Headline */}
-          <h1 className="text-5xl sm:text-7xl lg:text-[90px] font-black tracking-tight text-white leading-[0.9] font-display mb-6">
+          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[84px] font-black tracking-tight text-white leading-[0.92] font-display mb-5 sm:mb-6">
             FIELD<br />
             <span style={{ color: 'var(--brand)' }}>FORECASTS</span>
           </h1>
 
-          <p className="text-base sm:text-lg text-white/50 max-w-lg mx-auto leading-relaxed mb-10">
+          <p className="text-sm sm:text-base text-white/50 max-w-md mx-auto leading-relaxed mb-8">
             Free tips every morning. High-probability VIP value bets for serious bettors.
           </p>
 
           {/* CTAs */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-12">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-8">
             <button
               onClick={() => onOpenCheckout(popularPlan)}
-              className="w-full sm:w-auto px-8 py-4 font-bold text-sm text-slate-950 rounded-xl transition-all hover:brightness-110"
+              className="w-full sm:w-auto px-7 py-3.5 font-bold text-xs sm:text-sm text-slate-950 rounded-xl transition-all hover:brightness-110 shadow-lg shadow-sky-500/20"
               style={{ backgroundColor: 'var(--brand)' }}
             >
               Unlock VIP — $29/mo
             </button>
             <Link
               to="/tips"
-              className="w-full sm:w-auto px-8 py-4 font-medium text-sm text-white rounded-xl border border-white/15 hover:border-white/30 hover:bg-white/5 transition-all text-center"
+              className="w-full sm:w-auto px-7 py-3.5 font-semibold text-xs sm:text-sm text-white rounded-xl border border-white/15 hover:border-white/30 hover:bg-white/5 transition-all text-center"
             >
               Today's Free Tips
             </Link>
           </div>
 
-          {/* ─── STATS — below CTAs as requested ─── */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-0 border border-white/10 rounded-2xl overflow-hidden max-w-3xl mx-auto backdrop-blur-sm bg-white/[0.02]">
-            {stats.map(({ val, label }, i) => (
+          {/* ─── STATS — Compact 2x2 on mobile, 4-col on desktop ─── */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 border border-white/10 rounded-2xl p-2.5 max-w-lg mx-auto backdrop-blur-md bg-white/[0.03]">
+            {stats.map(({ val, label }) => (
               <div
                 key={label}
-                className={`flex-1 py-4 px-3 sm:px-4 text-center ${i < stats.length - 1 ? 'border-b sm:border-b-0 sm:border-r border-white/10' : ''}`}
+                className="py-2.5 px-2 text-center rounded-xl bg-white/[0.02] border border-white/5"
               >
-                <div className="text-lg sm:text-xl md:text-2xl font-black text-white font-mono leading-none whitespace-nowrap">{val}</div>
-                <div className="text-[9px] sm:text-[10px] text-white/40 font-semibold uppercase tracking-wider mt-1.5 whitespace-nowrap">{label}</div>
+                <div className="text-base sm:text-lg font-black text-white font-mono leading-none whitespace-nowrap">{val}</div>
+                <div className="text-[9px] text-white/40 font-semibold uppercase tracking-wider mt-1 whitespace-nowrap">{label}</div>
               </div>
             ))}
           </div>
 
           {/* League tags */}
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-2">
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-1.5">
             {['Premier League', 'La Liga', 'Serie A', 'Champions League', 'Bundesliga'].map(league => (
               <span
                 key={league}
-                className="px-3 py-1 text-[10px] font-medium uppercase tracking-widest rounded"
-                style={{ color: 'rgba(255,255,255,0.25)', border: '1px solid rgba(255,255,255,0.08)' }}
+                className="px-2.5 py-1 text-[9px] font-medium uppercase tracking-widest rounded"
+                style={{ color: 'rgba(255,255,255,0.3)', border: '1px solid rgba(255,255,255,0.08)' }}
               >
                 {league}
               </span>
@@ -137,10 +137,10 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenCheckout }) => {
       </section>
 
       {/* ─── FREE PICKS ─── */}
-      <section className="max-w-7xl mx-auto px-5 sm:px-8 py-20">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
+      <section className="max-w-7xl mx-auto px-5 sm:px-8 py-16 sm:py-20">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 sm:mb-10 gap-3">
           <div>
-            <p className="text-[11px] font-bold uppercase tracking-widest mb-2" style={{ color: 'var(--brand)' }}>
+            <p className="text-[11px] font-bold uppercase tracking-widest mb-1.5" style={{ color: 'var(--brand)' }}>
               Free Picks
             </p>
             <h2 className="text-2xl sm:text-3xl font-black font-display" style={{ color: 'var(--text-primary)' }}>
@@ -164,7 +164,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenCheckout }) => {
       </section>
 
       {/* ─── VIP TEASER ─── */}
-      <section className="max-w-7xl mx-auto px-5 sm:px-8 pb-20">
+      <section className="max-w-7xl mx-auto px-5 sm:px-8 pb-16 sm:pb-20">
         <div
           className="relative rounded-2xl overflow-hidden border"
           style={{ borderColor: 'var(--border)', backgroundColor: 'var(--bg-surface)' }}
@@ -175,10 +175,10 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenCheckout }) => {
             style={{ backgroundImage: "url('/hero-stadium.png')" }}
           />
 
-          <div className="relative z-10 p-8 sm:p-12 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <div className="space-y-5">
+          <div className="relative z-10 p-6 sm:p-12 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div className="space-y-4 sm:space-y-5">
               <div>
-                <p className="text-[11px] font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand)' }}>
+                <p className="text-[11px] font-bold uppercase tracking-widest mb-2" style={{ color: 'var(--brand)' }}>
                   VIP Selections
                 </p>
                 <h2 className="text-2xl sm:text-3xl font-black leading-tight font-display" style={{ color: 'var(--text-primary)' }}>
@@ -186,16 +186,16 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenCheckout }) => {
                 </h2>
               </div>
 
-              <p className="text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+              <p className="text-xs sm:text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                 Model flagged <strong style={{ color: 'var(--text-primary)' }}>2 value picks</strong> with 90%+ win probability and odds of 2.10+. Subscribers only.
               </p>
 
-              <ul className="space-y-2.5 text-xs" style={{ color: 'var(--text-secondary)' }}>
+              <ul className="space-y-2 text-xs" style={{ color: 'var(--text-secondary)' }}>
                 {[
                   'Real Madrid vs Bayern Munich',
                   'Man City vs Liverpool — Asian Handicap -1.0',
                 ].map(pick => (
-                  <li key={pick} className="flex items-center gap-3">
+                  <li key={pick} className="flex items-center gap-2.5">
                     <span
                       className="w-1.5 h-1.5 rounded-full flex-shrink-0"
                       style={{ backgroundColor: 'var(--brand)' }}
@@ -207,7 +207,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenCheckout }) => {
 
               <button
                 onClick={() => onOpenCheckout(popularPlan)}
-                className="inline-block px-6 py-3 font-bold text-xs uppercase tracking-wider text-slate-950 rounded-lg transition-all hover:brightness-110"
+                className="inline-block px-6 py-3 font-bold text-xs uppercase tracking-wider text-slate-950 rounded-xl transition-all hover:brightness-110"
                 style={{ backgroundColor: 'var(--brand)' }}
               >
                 Unlock VIP — $29/mo
@@ -228,19 +228,19 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenCheckout }) => {
       </section>
 
       {/* ─── WHY ─── */}
-      <section className="max-w-7xl mx-auto px-5 sm:px-8 pb-20">
-        <div className="mb-10">
+      <section className="max-w-7xl mx-auto px-5 sm:px-8 pb-16 sm:pb-20">
+        <div className="mb-8">
           <h2 className="text-2xl sm:text-3xl font-black font-display" style={{ color: 'var(--text-primary)' }}>
             Why Bettors Choose Us
           </h2>
-          <p className="text-sm mt-2" style={{ color: 'var(--text-secondary)' }}>
+          <p className="text-xs sm:text-sm mt-1" style={{ color: 'var(--text-secondary)' }}>
             No guesswork. Pure statistics and market intelligence.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
           {features.map(({ title, desc }) => (
-            <div key={title} className="p-7 rounded-2xl bet-card space-y-3">
+            <div key={title} className="p-6 sm:p-7 rounded-2xl bet-card space-y-2.5">
               <h3 className="text-sm font-bold font-display" style={{ color: 'var(--text-primary)' }}>{title}</h3>
               <p className="text-xs leading-relaxed" style={{ color: 'var(--text-secondary)' }}>{desc}</p>
             </div>
@@ -249,9 +249,9 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenCheckout }) => {
       </section>
 
       {/* ─── FAQ ─── */}
-      <section className="max-w-3xl mx-auto px-5 sm:px-8 pb-20">
+      <section className="max-w-3xl mx-auto px-5 sm:px-8 pb-16 sm:pb-20">
         <h2
-          className="text-2xl font-black mb-8 font-display"
+          className="text-2xl font-black mb-6 font-display"
           style={{ color: 'var(--text-primary)' }}
         >
           Questions
@@ -264,7 +264,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenCheckout }) => {
               <div key={idx} className="rounded-xl overflow-hidden bet-card">
                 <button
                   onClick={() => setOpenFaq(isOpen ? null : idx)}
-                  className="w-full px-5 py-4 text-left flex items-center justify-between text-sm font-semibold transition-colors"
+                  className="w-full px-5 py-4 text-left flex items-center justify-between text-xs sm:text-sm font-semibold transition-colors"
                   style={{ color: 'var(--text-primary)' }}
                 >
                   <span>{faq.q}</span>
@@ -290,9 +290,9 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenCheckout }) => {
       </section>
 
       {/* ─── BOTTOM CTA ─── */}
-      <section className="max-w-7xl mx-auto px-5 sm:px-8 pb-20">
+      <section className="max-w-7xl mx-auto px-5 sm:px-8 pb-24 sm:pb-20">
         <div
-          className="relative rounded-2xl overflow-hidden text-center py-20 px-8 border"
+          className="relative rounded-2xl overflow-hidden text-center py-16 px-6 border"
           style={{ borderColor: 'var(--border)', backgroundColor: 'var(--bg-surface)' }}
         >
           <div
@@ -301,18 +301,18 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenCheckout }) => {
           />
           <div className="relative z-10 max-w-md mx-auto space-y-4">
             <h2
-              className="text-3xl sm:text-4xl font-black font-display"
+              className="text-2xl sm:text-4xl font-black font-display"
               style={{ color: 'var(--text-primary)' }}
             >
               Bet Smarter.
             </h2>
-            <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>
+            <p className="text-xs sm:text-sm" style={{ color: 'var(--text-secondary)' }}>
               Join 14,500+ subscribers. Cancel anytime.
             </p>
-            <div className="pt-3">
+            <div className="pt-2">
               <button
                 onClick={() => onOpenCheckout(popularPlan)}
-                className="px-8 py-4 font-bold text-sm text-slate-950 rounded-xl transition-all hover:brightness-110"
+                className="px-8 py-3.5 font-bold text-xs sm:text-sm text-slate-950 rounded-xl transition-all hover:brightness-110"
                 style={{ backgroundColor: 'var(--brand)' }}
               >
                 Get Started — $29/mo
