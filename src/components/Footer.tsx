@@ -90,12 +90,14 @@ export const Footer: React.FC = () => {
             <h4 className="text-[10px] font-bold uppercase tracking-widest" style={{ color: 'var(--text-primary)' }}>
               Account & Legal
             </h4>
-            <ul className="space-y-2.5 text-xs" style={{ color: 'var(--text-secondary)' }}>
+            <ul className="space-y-2 text-xs" style={{ color: 'var(--text-secondary)' }}>
               <li><Link to="/login" className="hover:underline underline-offset-2">Log In</Link></li>
               <li><Link to="/signup" className="hover:underline underline-offset-2">Sign Up Free</Link></li>
               <li><Link to="/about" className="hover:underline underline-offset-2">About Field Forecast</Link></li>
+              <li><Link to="/privacy" className="hover:underline underline-offset-2">Privacy Policy</Link></li>
               <li><Link to="/terms" className="hover:underline underline-offset-2">Terms & Conditions</Link></li>
               <li><Link to="/gdpr" className="hover:underline underline-offset-2">GDPR & Journalism</Link></li>
+              <li><Link to="/copyright" className="hover:underline underline-offset-2">Copyright Notice</Link></li>
               <li><Link to="/refund-policy" className="hover:underline underline-offset-2">Refund Policy</Link></li>
             </ul>
           </div>
@@ -178,7 +180,9 @@ export const Footer: React.FC = () => {
           <p>© {new Date().getFullYear()} Fieldforecasts. All rights reserved.</p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link to="/terms" className="hover:underline underline-offset-2 transition-colors">Terms</Link>
+            <Link to="/privacy" className="hover:underline underline-offset-2 transition-colors">Privacy Policy</Link>
             <Link to="/gdpr" className="hover:underline underline-offset-2 transition-colors">GDPR & Journalism</Link>
+            <Link to="/copyright" className="hover:underline underline-offset-2 transition-colors">Copyright</Link>
             <Link to="/refund-policy" className="hover:underline underline-offset-2 transition-colors">Refund Policy</Link>
             <Link to="/about" className="hover:underline underline-offset-2 transition-colors">About Us</Link>
           </div>

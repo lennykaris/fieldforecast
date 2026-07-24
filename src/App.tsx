@@ -18,6 +18,8 @@ import { AboutPage } from './pages/AboutPage';
 import { TermsPage } from './pages/TermsPage';
 import { GdprPage } from './pages/GdprPage';
 import { RefundPolicyPage } from './pages/RefundPolicyPage';
+import { CopyrightPage } from './pages/CopyrightPage';
+import { PrivacyPage } from './pages/PrivacyPage';
 
 import type { SubscriptionPlan } from './types/prediction';
 import { SUBSCRIPTION_PLANS } from './data/predictions';
@@ -59,7 +61,8 @@ export const AppContent: React.FC = () => {
             <Route path="/about" element={<AboutPage />} />
             <Route path="/terms" element={<TermsPage />} />
             <Route path="/gdpr" element={<GdprPage />} />
-            <Route path="/privacy" element={<GdprPage />} />
+            <Route path="/privacy" element={<PrivacyPage />} />
+            <Route path="/copyright" element={<CopyrightPage />} />
             <Route path="/refund-policy" element={<RefundPolicyPage />} />
             <Route path="/refunds" element={<RefundPolicyPage />} />
           </Routes>
