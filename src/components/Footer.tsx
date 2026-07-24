@@ -96,6 +96,7 @@ export const Footer: React.FC = () => {
               <li><Link to="/about" className="hover:underline underline-offset-2">About Field Forecast</Link></li>
               <li><Link to="/terms" className="hover:underline underline-offset-2">Terms & Conditions</Link></li>
               <li><Link to="/gdpr" className="hover:underline underline-offset-2">GDPR & Journalism</Link></li>
+              <li><Link to="/refund-policy" className="hover:underline underline-offset-2">Refund Policy</Link></li>
             </ul>
           </div>
 
@@ -171,13 +172,14 @@ export const Footer: React.FC = () => {
 
         {/* Copyright */}
         <div
-          className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs"
+          className="pt-6 pb-28 md:pb-0 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs"
           style={{ color: 'var(--text-muted)' }}
         >
           <p>© {new Date().getFullYear()} Fieldforecasts. All rights reserved.</p>
-          <div className="flex gap-5">
-            <Link to="/terms" className="hover:underline underline-offset-2 transition-colors">Terms & Conditions</Link>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link to="/terms" className="hover:underline underline-offset-2 transition-colors">Terms</Link>
             <Link to="/gdpr" className="hover:underline underline-offset-2 transition-colors">GDPR & Journalism</Link>
+            <Link to="/refund-policy" className="hover:underline underline-offset-2 transition-colors">Refund Policy</Link>
             <Link to="/about" className="hover:underline underline-offset-2 transition-colors">About Us</Link>
           </div>
         </div>

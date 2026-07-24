@@ -17,6 +17,7 @@ import { SignupPage } from './pages/SignupPage';
 import { AboutPage } from './pages/AboutPage';
 import { TermsPage } from './pages/TermsPage';
 import { GdprPage } from './pages/GdprPage';
+import { RefundPolicyPage } from './pages/RefundPolicyPage';
 
 import type { SubscriptionPlan } from './types/prediction';
 import { SUBSCRIPTION_PLANS } from './data/predictions';
@@ -59,6 +60,8 @@ export const AppContent: React.FC = () => {
             <Route path="/terms" element={<TermsPage />} />
             <Route path="/gdpr" element={<GdprPage />} />
             <Route path="/privacy" element={<GdprPage />} />
+            <Route path="/refund-policy" element={<RefundPolicyPage />} />
+            <Route path="/refunds" element={<RefundPolicyPage />} />
           </Routes>
         </main>
       </div>

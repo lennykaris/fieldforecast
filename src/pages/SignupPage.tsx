@@ -23,7 +23,7 @@ export const SignupPage: React.FC = () => {
 
   return (
     <div
-      className="min-h-screen flex items-center justify-center px-5 py-16"
+      className="min-h-screen flex items-center justify-center px-5 pt-8 pb-28 md:py-16"
       style={{ backgroundColor: 'var(--bg-base)' }}
     >
       <div className="w-full max-w-sm space-y-6">

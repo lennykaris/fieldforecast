@@ -59,7 +59,7 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({ onOpenCheckout }) 
       className="min-h-screen"
       style={{ backgroundColor: 'var(--bg-base)', color: 'var(--text-primary)' }}
     >
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 pt-6 md:pt-24 pb-12 space-y-10">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 pt-6 md:pt-24 pb-28 md:pb-12 space-y-10">
 
         {/* Header */}
         <div

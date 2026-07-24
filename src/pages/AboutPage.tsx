@@ -32,7 +32,7 @@ export const AboutPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-24 pb-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto space-y-12">
+    <div className="min-h-screen pt-6 md:pt-24 pb-28 md:pb-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto space-y-12" style={{ backgroundColor: 'var(--bg-base)' }}>
       
       {/* Header Banner */}
       <section className="text-center space-y-4 max-w-3xl mx-auto">
