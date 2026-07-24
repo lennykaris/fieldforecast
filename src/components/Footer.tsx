@@ -66,6 +66,7 @@ export const Footer: React.FC = () => {
             <ul className="space-y-2.5 text-xs">
               {[
                 { to: '/', label: 'Home' },
+                { to: '/about', label: 'About Us' },
                 { to: '/tips', label: 'Daily Free Tips' },
                 { to: '/vip', label: 'VIP Pass' },
                 { to: '/dashboard', label: 'Dashboard' },
@@ -87,13 +88,14 @@ export const Footer: React.FC = () => {
           {/* Account links */}
           <div className="space-y-3">
             <h4 className="text-[10px] font-bold uppercase tracking-widest" style={{ color: 'var(--text-primary)' }}>
-              Account
+              Account & Legal
             </h4>
             <ul className="space-y-2.5 text-xs" style={{ color: 'var(--text-secondary)' }}>
               <li><Link to="/login" className="hover:underline underline-offset-2">Log In</Link></li>
               <li><Link to="/signup" className="hover:underline underline-offset-2">Sign Up Free</Link></li>
-              <li style={{ color: 'var(--text-muted)' }}>Stripe & PayPal</li>
-              <li style={{ color: 'var(--text-muted)' }}>Telegram Alerts</li>
+              <li><Link to="/about" className="hover:underline underline-offset-2">About Field Forecast</Link></li>
+              <li><Link to="/terms" className="hover:underline underline-offset-2">Terms & Conditions</Link></li>
+              <li><Link to="/gdpr" className="hover:underline underline-offset-2">GDPR & Journalism</Link></li>
             </ul>
           </div>
 
@@ -174,11 +176,9 @@ export const Footer: React.FC = () => {
         >
           <p>© {new Date().getFullYear()} Fieldforecasts. All rights reserved.</p>
           <div className="flex gap-5">
-            {['Terms', 'Privacy', 'Cookies'].map(item => (
-              <a key={item} href={`#${item.toLowerCase()}`} className="hover:underline underline-offset-2 transition-colors">
-                {item}
-              </a>
-            ))}
+            <Link to="/terms" className="hover:underline underline-offset-2 transition-colors">Terms & Conditions</Link>
+            <Link to="/gdpr" className="hover:underline underline-offset-2 transition-colors">GDPR & Journalism</Link>
+            <Link to="/about" className="hover:underline underline-offset-2 transition-colors">About Us</Link>
           </div>
         </div>
 

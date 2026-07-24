@@ -30,6 +30,7 @@ export const Navbar: React.FC<{ onOpenCheckout?: () => void }> = ({ onOpenChecko
 
   const navLinks = [
     { to: '/', label: 'Home' },
+    { to: '/about', label: 'About' },
     { to: '/tips', label: 'Free Tips' },
     { to: '/vip', label: 'VIP' },
     ...(isLoggedIn ? [{ to: '/dashboard', label: 'Dashboard' }] : []),
