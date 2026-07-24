@@ -27,6 +27,12 @@ html.dark {
   --nav-border:     rgba(255, 255, 255, 0.12);
   --nav-text:       #f8fafc;
   --nav-text-muted: #94a3b8;
+  --footer-bg:             #0d1527;
+  --footer-border:         rgba(255, 255, 255, 0.08);
+  --footer-text-primary:   #f8fafc;
+  --footer-text-secondary: #94a3b8;
+  --footer-text-muted:     #475569;
+  --footer-card-bg:        #111d35;
 }
 
 /* Light mode */
@@ -48,6 +54,12 @@ html.light {
   --nav-border:     rgba(255, 255, 255, 0.15);
   --nav-text:       #f8fafc;
   --nav-text-muted: #94a3b8;
+  --footer-bg:             #0f172a;
+  --footer-border:         rgba(255, 255, 255, 0.12);
+  --footer-text-primary:   #ffffff;
+  --footer-text-secondary: #cbd5e1;
+  --footer-text-muted:     #94a3b8;
+  --footer-card-bg:        #1e293b;
 }
 
 /* ─── BASE ─── */
